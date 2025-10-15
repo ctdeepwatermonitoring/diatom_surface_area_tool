@@ -197,6 +197,6 @@ if __name__ == '__main__':
     IMAGE_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Surface Area Photos'
     GROUND_TRUTH = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/FoilWeights_2025.xlsx'
     OUT_CSV = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/rock_area_results.csv'
-    DISPLAY = True
+    DISPLAY = False
 
     process_folder(IMAGE_DIR, GROUND_TRUTH, OUT_CSV, display=DISPLAY)
