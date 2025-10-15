@@ -174,10 +174,8 @@ def process_folder(image_dir, ground_truth_path, out_csv, display=False):
 
         if display:
             resized_img = cv2.resize(img, (0, 0), fx=scale, fy=scale)
-            resized_board = cv2.resize(board_mask, (0, 0), fx=scale, fy=scale)
             resized_converged = cv2.resize(converged_cleaned, (0, 0), fx=scale, fy=scale)
             cv2.imshow('Original', resized_img)
-            cv2.imshow('Board Mask', resized_board)
             cv2.imshow('Converged Cleaned Mask', resized_converged)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
