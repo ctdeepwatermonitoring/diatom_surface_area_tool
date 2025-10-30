@@ -70,7 +70,7 @@ def clean_mask_until_converged(mask, min_area):
 
 
 def choose_mask_by_color(hsv):
-    """Return mask and label choosing between green and orange thresholds based on pixel counts."""
+    # Return mask and label choosing between green and orange thresholds based on pixel counts.
     lower_green = np.array([30, 80, 130])
     upper_green = np.array([90, 255, 255])
     lower_orange = np.array([0, 100, 85])
@@ -83,9 +83,13 @@ def choose_mask_by_color(hsv):
     return orange_mask, 'orange'
 
 
-def process_folder(image_dir, ground_truth_path, out_csv, display=False):
+def process_folder(image_dir, ground_truth_path, out_csv, init_mask_dir, out_mask_dir, display=False):
     # Read ground truth Excel
     gt_df = pd.read_excel(ground_truth_path)
+
+    # Ensure mask directories exist
+    os.makedirs(init_mask_dir, exist_ok=True)
+    os.makedirs(out_mask_dir, exist_ok=True)
 
     # Collect image paths
     patterns = [os.path.join(image_dir, '*.' + ext) for ext in ['jpg', 'jpeg', 'JPG', 'JPEG', 'png', 'PNG']]
@@ -105,13 +109,25 @@ def process_folder(image_dir, ground_truth_path, out_csv, display=False):
             print('  Could not read image, skipping')
             continue
 
+        # Choose mask color
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         mask, chosen = choose_mask_by_color(hsv)
         print(f'  Chosen color: {chosen}')
 
+        # Save initial mask
+        init_mask_path = os.path.join(init_mask_dir, os.path.basename(img_path))
+        cv2.imwrite(init_mask_path, mask)
+        print(f'  Saved initial mask to {init_mask_path}')
+
+        # Clean mask
         total_pixels = mask.size
         min_area = int(total_pixels * min_area_ratio)
         converged_cleaned = clean_mask_until_converged(mask, min_area)
+
+        # Save cleaned mask
+        out_mask_path = os.path.join(out_mask_dir, os.path.basename(img_path))
+        cv2.imwrite(out_mask_path, converged_cleaned)
+        print(f'  Saved cleaned mask to {out_mask_path}')
 
         cnts = cv2.findContours(converged_cleaned, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         contours = cnts[0] if len(cnts) == 2 else cnts[1]
@@ -156,6 +172,15 @@ def process_folder(image_dir, ground_truth_path, out_csv, display=False):
                     except Exception:
                         gt_val = float('nan')
 
+        if not math.isnan(rock_area_square_cm) and not math.isnan(gt_val):
+            if rock_area_square_cm > gt_val:
+                direction_err = "overestimate"
+            elif rock_area_square_cm < gt_val:
+                direction_err = "underestimate"
+            else:
+                direction_err = "exact match"
+        else:
+            direction_err = float('nan')
         abs_err = abs(rock_area_square_cm - gt_val) if (not math.isnan(rock_area_square_cm) and not math.isnan(gt_val)) else float('nan')
         pct_err = (abs_err / gt_val * 100) if (not math.isnan(abs_err) and not math.isnan(gt_val) and gt_val != 0) else float('nan')
 
@@ -167,6 +192,7 @@ def process_folder(image_dir, ground_truth_path, out_csv, display=False):
             'rock_pixels': rock_pixels,
             'rock_area_cm2': rock_area_square_cm,
             'ground_truth_cm2': gt_val,
+            'direction_error': direction_err,
             'abs_error': abs_err,
             'pct_error': pct_err,
             'chosen_color': chosen,
@@ -195,8 +221,10 @@ def process_folder(image_dir, ground_truth_path, out_csv, display=False):
 
 if __name__ == '__main__':
     IMAGE_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Surface Area Photos'
+    INIT_MASK_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Initial Masks'
+    CLEANED_MASK_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Cleaned Masks'
     GROUND_TRUTH = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/FoilWeights_2025.xlsx'
     OUT_CSV = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/rock_area_results.csv'
     DISPLAY = False
 
-    process_folder(IMAGE_DIR, GROUND_TRUTH, OUT_CSV, display=DISPLAY)
+    process_folder(IMAGE_DIR, GROUND_TRUTH, OUT_CSV, INIT_MASK_DIR, CLEANED_MASK_DIR, display=DISPLAY)
