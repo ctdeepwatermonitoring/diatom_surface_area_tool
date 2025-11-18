@@ -71,7 +71,7 @@ def clean_mask_until_converged(mask, min_area):
 
 def choose_mask_by_color(hsv):
     # Return mask and label choosing between green and orange thresholds based on pixel counts.
-    lower_green = np.array([30, 80, 130])
+    lower_green = np.array([55, 65, 85])
     upper_green = np.array([90, 255, 255])
     lower_orange = np.array([0, 100, 85])
     upper_orange = np.array([20, 255, 255])
