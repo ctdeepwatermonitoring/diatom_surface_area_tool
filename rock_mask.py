@@ -220,11 +220,11 @@ def process_folder(image_dir, ground_truth_path, out_csv, init_mask_dir, out_mas
 
 
 if __name__ == '__main__':
-    IMAGE_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Surface Area Photos'
-    INIT_MASK_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Initial Masks'
-    CLEANED_MASK_DIR = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/Cleaned Masks'
-    GROUND_TRUTH = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/FoilWeights_2025.xlsx'
-    OUT_CSV = r'/home/deepuser/Documents/OneDrive_1_9-25-2025/rock_area_results.csv'
+    IMAGE_DIR = r'/home/deepuser/diatom_surface_area_tool/Surface Area Photos'
+    INIT_MASK_DIR = r'/home/deepuser/diatom_surface_area_tool/Initial Masks'
+    CLEANED_MASK_DIR = r'/home/deepuser/diatom_surface_area_tool/Cleaned Masks'
+    GROUND_TRUTH = r'/home/deepuser/diatom_surface_area_tool/FoilWeights_2025.xlsx'
+    OUT_CSV = r'/home/deepuser/diatom_surface_area_tool/rock_area_results.csv'
     DISPLAY = False
 
     process_folder(IMAGE_DIR, GROUND_TRUTH, OUT_CSV, INIT_MASK_DIR, CLEANED_MASK_DIR, display=DISPLAY)

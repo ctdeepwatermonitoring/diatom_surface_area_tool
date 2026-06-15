@@ -1,6 +1,6 @@
 import cv2
 
-IMAGE = r"/home/deepuser/Documents/OneDrive_1_9-25-2025/Surface Area Photos/15330_WillowBrook_Rocks_062525_iPad.jpg"
+IMAGE = r"/home/deepuser/diatom_surface_area_tool/crayon_test/20460_SaffordBrook_RocksSun_060926.JPG"
 
 # Resize factor
 SCALE = 0.2
