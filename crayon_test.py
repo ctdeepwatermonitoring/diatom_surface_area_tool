@@ -182,11 +182,6 @@ for cluster_id in range(5):
         # Draw the bridge between the two nearest points
         cv2.line(cluster_mask, tuple(p1.astype(int)), tuple(p2.astype(int)), 255, thickness=3)
 
-        current_contours, _ = cv2.findContours(
-            cluster_mask,
-            cv2.RETR_EXTERNAL,
-            cv2.CHAIN_APPROX_SIMPLE
-        )
     closed_mask = cv2.bitwise_or(closed_mask, cluster_mask)
 
 
@@ -197,7 +192,7 @@ for i, centroid in enumerate(contour_centroids):
     cv2.circle(img_bgr, centroid, 5, color, -1)'''
 
 #Use close_with_alpha_shape method to close the mask
-#closed_mask = close_mask_per_contour(closed_mask, alpha=0.002)
+closed_mask = close_mask_per_contour(closed_mask, alpha=0.005)
 
 #Scale to resize the images before displaying
 scale = 0.2
