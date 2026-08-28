@@ -1,0 +1,36 @@
+image_path,sid,dup_flag,board_pixels,rock_pixels,rock_area_cm2,ground_truth_cm2,direction_error,abs_error,pct_error,chosen_board_color,chosen_rock_color
+crayon_test/Crayon Surface Area Photos\purple_crayon\14314_NatchaugRiver_Rocks_061026.JPG,14314,0,9631435,2210795,319.8737929,417.668023,underestimate,97.79423011,23.41434458,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\15015_SethWilliamsBrook_Rocks_061026.JPG,15015,0,9707630,2001262,287.284317,296.8574766,underestimate,9.573159611,3.224833587,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\18981_LymanBrook_Rocks_060826.JPG,18981,0,9700485,97532,14.01118495,296.0522181,underestimate,282.0410331,95.26732647,orange,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\20460_SaffordBrook_RocksShade_060926.JPG,20460,0,9974611,2611959,364.9148796,344.4112586,overestimate,20.50362093,5.953237711,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\20460_SaffordBrook_RocksSun_060926.JPG,20460,0,9756538,2673002,381.7901571,344.4112586,overestimate,37.37889847,10.85298391,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21059_FryBrook_Rocks_061026.JPG,21059,0,9836621,2849667,403.7098623,351.1797832,overestimate,52.53007907,14.95817287,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21060_MillRiver_Rocks1_070126.JPG,21060,0,8927207,1647488,257.1744616,253.6564436,overestimate,3.518017991,1.386922383,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21060_MillRiver_Rocks2_070126.JPG,21060,0,9751534,1219212,174.2318201,253.6564436,underestimate,79.42462342,31.31188875,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21061_RockadundeeBrookNNT_Rocks_060926.JPG,21061,0,9680835,2607780,375.3870761,336.4674919,overestimate,38.91958424,11.56711575,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21063_NorotonRiver_Rocks_070126.JPG,21063,0,9174164,1786066,271.3014958,307.1082004,underestimate,35.80670459,11.65931243,blue,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21064-D_SalmonRiver_Rocks_060826.JPG,21064,1,9677017,2018093,290.6168937,387.1334893,underestimate,96.51659566,24.93108923,orange,purple
+crayon_test/Crayon Surface Area Photos\purple_crayon\21064_SalmonRiver_Rocks_060826.JPG,21064,0,9585243,2242775,326.0646843,314.0508349,overestimate,12.01384944,3.825447381,orange,purple
+crayon_test/Crayon Surface Area Photos\red_crayon\18411_PequonnockRiver_Rocks_070126.JPG,18411,0,9368076,1902559,283.0146471,324.8891797,underestimate,41.87453261,12.88886649,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\20636_NonnewaugRiverNNT_Rocks_062526.JPG,20636,0,9433682,1714829,253.3149207,239.5970645,overestimate,13.71785615,5.725385734,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\21056_ChaseBrook_Rocks_062526.JPG,21056,0,7061575,1886698,372.3248279,429.4639726,underestimate,57.13914475,13.30475858,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\21062_NonnewaugRiver_RocksShade_062526.JPG,21062,0,9997831,2635877,367.4011689,351.4409482,overestimate,15.96022071,4.541366278,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\21062_NonnewaugRiver_RocksSun_062526.JPG,21062,0,9734404,2599268,372.1027486,351.4409482,overestimate,20.66180047,5.879167063,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\21066_TankerhoosenRiver_RocksShade_062526.JPG,21066,0,9453542,1877576,276.7732743,238.7700422,overestimate,38.00323209,15.91624801,blue,red
+crayon_test/Crayon Surface Area Photos\red_crayon\21066_TankerhoosenRiver_RocksSun_062526.JPG,21066,0,9629936,1823980,263.9476839,238.7700422,overestimate,25.17764167,10.54472388,blue,red
+crayon_test/Crayon Surface Area Photos\yellow_crayon\14441_SalmonRiver_Rocks_060826.JPG,14441,0,9354603,2275413,338.9659373,368.3949052,underestimate,29.42896788,7.98842966,orange,yellow
+crayon_test/Crayon Surface Area Photos\yellow_crayon\21057-D_DurkeeBrook_Rocks_060926.JPG,21057,1,9977747,2788399,389.4427427,350.9186183,overestimate,38.5241244,10.97807936,blue,yellow
+crayon_test/Crayon Surface Area Photos\yellow_crayon\21057_DurkeeBrook_Rocks_060926.JPG,21057,0,9305160,2985841,447.1611007,459.7155776,underestimate,12.55447694,2.730922673,blue,yellow
+,,,,,,,,,,,
+TOTAL MEANS,,,,,310.491349,329.8206464,"10 underestimates, 12 overestimates",48.13919974,14.94775558,Color chosen correctly in all cases,
+PURPLE MEANS,,,,,288.8633855,325.2210768,"6 underestimates, 6 overestimates",63.83503306,19.86272292,Color chosen correctly in all cases,
+PURPLE MIN ERROR,21060,0,8927207,1647488,257.1744616,253.6564436,overestimate,3.518017991,1.386922383,blue,
+PURPLE MAX ERROR,18981,0,9700485,97532,14.01118495,296.0522181,underestimate,282.0410331,95.26732647,orange,
+,,,,,,,,,,,
+RED MEANS,,,,,312.6970388,310.6245997,"2 underestimates, 5 overestimates",30.36206121,9.828645148,Color chosen correctly in all cases,
+RED MIN ERROR,21062,0,9997831,2635877,367.4011689,351.4409482,overestimate,15.96022071,4.541366278,blue,
+RED MAX ERROR,21066,0,9453542,1877576,276.7732743,238.7700422,overestimate,38.00323209,15.91624801,blue,
+,,,,,,,,,,,
+YELLOW MEANS,,,,,391.8565936,393.0097004,"2 underestimates, 1 overestimate",26.83585641,7.232477231,Color chosen correctly in all cases,
+YELLOW MIN ERROR,21057,0,9305160,2985841,447.1611007,459.7155776,underestimate,12.55447694,2.730922673,blue,
+YELLOW MAX ERROR,21057,1,9977747,2788399,389.4427427,350.9186183,overestimate,38.5241244,10.97807936,blue,
